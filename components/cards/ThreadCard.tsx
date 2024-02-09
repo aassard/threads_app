@@ -5,7 +5,6 @@ import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 
 import Quill from "quill";
-import ImageBlot from "quill/blots/image";
 
 interface Props {
   id: string;
