@@ -77,9 +77,12 @@ function PostThread({ userId }: Props) {
                 <ReactQuill
                   theme="snow"
                   className="h-full w-full"
-                  placeholder="Write something..."
+                  placeholder="allez, vas-y..."
                   modules={modules}
                   {...field}
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
                 />
               </FormControl>
               <FormMessage />
@@ -87,8 +90,8 @@ function PostThread({ userId }: Props) {
           )}
         />
 
-        <Button type="submit" className="bg-primary-500">
-          Post Thread
+        <Button type="submit" className="bg-orange-500">
+          placer cette parole
         </Button>
       </form>
     </Form>
