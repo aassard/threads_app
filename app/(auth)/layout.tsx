@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Script from "next/script";
 
 import "../globals.css";
 
@@ -24,6 +25,22 @@ export default function RootLayout({
         baseTheme: dark,
       }}
     >
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-E7NY2W59JZ"
+        />
+
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${"${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}"});
+          `}
+        </Script>
+      </head>
+
       <html lang="en">
         <body className={`${inter.className} bg-dark-1`}>
           <div
